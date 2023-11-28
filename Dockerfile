@@ -14,6 +14,6 @@ ENV REAL_IP_HEADER 1
 # Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-RUN sed -i 's#try_files $uri $uri/ =404;#try_files $uri $uri/ $uri.html /$uri.php$is_args$query_string;#g' /etc/nginx/sites-available/default.conf
+RUN sed -i 's#try_files $uri $uri/ =404;#try_files $uri $uri/ $uri.html /$uri.php?$args;#g' /etc/nginx/sites-available/default.conf
 
 CMD ["/start.sh"]
