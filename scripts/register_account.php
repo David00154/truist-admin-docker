@@ -167,7 +167,7 @@ if ($password != $cpassword) {
 if ($errorMsg == 0) {
   $pass = md5($password);
   $dated = date(" d M Y H:i a");
-  $query = $conn->query("INSERT INTO users (firstname, lastname, middlename, state, country, city, zipcode, dob, address, phone, email, accountnumber, accounttype, usercurrency, accountbalance, imf, cot, secretCode, password, approve, status, datecreated) VALUES ('$firstname', '$middlename', '$lastname', '$state', '$country', '$city', '$zipcode', '$dob', '$address', '$phone', '$email', '$accountnumber', '$accounttype', '$usercurrency', '$accountbalance', '$imf', '$cot', '$secretCode', '$pass', '1', 'active', '$dated')");
+  $query = $conn->query("INSERT INTO users (username, firstname, lastname, middlename, state, country, city, zipcode, dob, address, phone, email, accountnumber, accounttype, usercurrency, accountbalance, imf, cot, secretCode, password, approve, status, datecreated) VALUES ('$email', '$firstname', '$middlename', '$lastname', '$state', '$country', '$city', '$zipcode', '$dob', '$address', '$phone', '$email', '$accountnumber', '$accounttype', '$usercurrency', '$accountbalance', '$imf', '$cot', '$secretCode', '$pass', '1', 'active', '$dated')");
 
   echo mysqli_error($conn);
 
