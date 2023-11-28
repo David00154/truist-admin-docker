@@ -1,16 +1,13 @@
-FROM richarvey/nginx-php-fpm:latest
+FROM php:8-apache
 
-COPY . .
+RUN a2enmod rewrite
+#RUN mkdir -p /etc/apache2/ssl
+#RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
-# Image config
-ENV SKIP_COMPOSER 1
-ENV WEBROOT /var/www/html
-ENV PHP_ERRORS_STDERR 1
-ENV RUN_SCRIPTS 1
-ENV REAL_IP_HEADER 1
+#COPY ./ssl/*.pem /etc/apache2/ssl/
+#COPY ./apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 
+COPY . /var/www/html
 
-# Allow composer to run as root
-ENV COMPOSER_ALLOW_SUPERUSER 1
-
-CMD ["/start.sh"]
+EXPOSE 80
+EXPOSE 443
