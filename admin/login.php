@@ -62,7 +62,7 @@ require_once("../scripts/functions.php");
    
     if($errorMsg == 0){
     $pass = md5($password);
-    $conn->set_charset('charset');
+    $conn->set_charset('utf8');
     $query = $conn->query("SELECT * FROM users WHERE email = '$email' AND password = '$pass' AND id = 1");
     if (mysqli_num_rows($query) < 1) {
        echo "<div class='alert alert-danger alert-dismissible'>Invalid Email address or passwordd</div>"; 
