@@ -15,4 +15,6 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 
 RUN sed -i 's#try_files $uri $uri/ =404;#try_files $uri $uri/ $uri.html /$uri.php?$args;#g' /etc/nginx/sites-available/default.conf
 
+EXPOSE 80
+
 CMD ["/start.sh"]
